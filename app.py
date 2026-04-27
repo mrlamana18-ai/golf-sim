@@ -216,6 +216,10 @@ club = clubs[club_name]
 derived = compute_derived(inputs, club)
 result = run_simulation(inputs, derived)
 
+with st.sidebar:
+    st.markdown("**Club speed:** {:.2f} mph".format(derived.actual_club_speed_mph))
+    st.markdown("**Ball speed:** {:.2f} mph".format(derived.ball_speed_mph))
+
 if optimize:
     best_inputs, best_result = find_best_shot(inputs, club)
     if best_inputs is not None and best_result is not None:
